@@ -4,8 +4,13 @@ namespace DTS\eBaySDK\Types\Test;
 use DTS\eBaySDK\Test\Mocks\ComplexClass;
 use DTS\eBaySDK\Test\Mocks\SimpleClass;
 
-class SearchTest extends \PHPUnit_Framework_TestCase
+class SearchTest extends \PHPUnit\Framework\TestCase
 {
+    public function testSlicesStrings()
+    {
+        $this->assertSame('bcd', \DTS\eBaySDK\JmesPath\Utils::slice('abcdef', 1, 4));
+    }
+
     public function testCanSearch()
     {
         $foo = new SimpleClass([
